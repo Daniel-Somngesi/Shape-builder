@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Shape</h2>
+@using (Html.BeginForm("Add", "Home", FormMethod.Post))
+{
+    <div style="padding:3px" class="form-group">
+        <label for="desc">Description</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="fill">Fill</label>
+        <input type="text" pattern="#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})" class="form-control" name="fill" id="fill" required>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="outline">Stroke Colour</label>
+        <input type="text" pattern="#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})" class="form-control" name="outline" id="outline" required>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="stroke">Stroke Width</label>
+        <input type="number" min="0" max="3" class="form-control" name="stroke" id="stroke" required>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="shapeType">Choose shape</label>
+        <select class="form-control" id="shapeType" name="type">
+            <option value="1">Rectangle</option>
+            <option value="2">Circle</option>
+        </select>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="xCoord">X Coordinate</label>
+        <input type="number" min="0" max="449" class="form-control" name="xCoord" id="xCoord" required>
+    </div>
+    <div style="padding:3px" class="form-group">
+        <label for="yCoord">Y Coordinate</label>
+        <input type="number" min="0" max="399" class="form-control" name="yCoord" id="yCoord" required>
+    </div>
+    <!-- Fields for circle shape -->
+    <div style="padding:3px" class="form-group circ">
+        <label for="radius">Radius</label>
+        <input type="number" min="0" max="100" class="form-control" name="radius" id="radius">
+    </div>
+    <!-- Fields for rectangle shape -->
+    <div style="padding:3px" class="form-group rect">
+        <label for="width">Width</label>
+        <input type="number" min="0" max="449" class="form-control" name="width" id="width">
+    </div>
+    <div style="padding:3px" class="form-group rect">
+        <label for="height">Height</label>
+        <input type="number" min="0" max="399" class="form-control" name="height" id="height">
+    </div>
+    <button style="padding:3px;" type="submit" class="btn btn-primary">Submit</button>
+}
+
+@section Scripts {
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Add/add.js")" asp-append-version="true"></script>
+
+}
